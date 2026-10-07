@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="ja">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>プライバシーポリシー — AI File Organizer</title><link rel="stylesheet" href="style.css"></head>
+<body>
+<header><a href="index.html">AI File Organizer</a><nav aria-label="メイン"><a href="privacy.html" aria-current="page">プライバシー</a><a href="terms.html">利用規約</a></nav></header>
+<main>
+<p class="eyebrow">PRIVACY</p><h1>プライバシーポリシー</h1><p class="meta">更新日：2026年10月7日</p>
+<p>このポリシーは、AI File OrganizerのPC内AIによるGoogle Drive整理と、専用スプレッドシートへの結果表示に適用します。外部AIを明示的に設定して使う別の運用は、このページで説明する構成には含みません。</p>
+<h2>取得する情報と利用目的</h2>
+<table><thead><tr><th scope="col">情報</th><th scope="col">利用目的</th></tr></thead><tbody>
+<tr><td>ファイル・フォルダの情報</td><td>ファイルID、名前、種類、サイズ、日時、親フォルダ、バージョン、所有者・共有状態・操作可否を取得し、対象範囲と安全な移動条件を確認します。</td></tr>
+<tr><td>対象文書の内容</td><td>INBOX内の対応形式の文書を取得し、本文を抽出して、PC内AIで保存先を判断します。内容のハッシュ値を計算し、処理中の変更と移動結果を検証します。</td></tr>
+<tr><td>Googleの認証情報</td><td>アクセス用・更新用トークン等を利用し、利用者が許可したGoogle APIへの接続を維持します。Googleのパスワードはアプリで受け取りません。</td></tr>
+<tr><td>分類結果と処理履歴</td><td>移動候補、判断理由、確信度、処理日時、元と移動先の情報、操作結果を記録し、確認・重複処理防止・復旧・Undoに利用します。</td></tr>
+</tbody></table>
+<h2>Googleへのアクセス範囲</h2>
+<p>移動用の認証ではDriveの読み取り（<code>drive.readonly</code>）とメタデータ管理（<code>drive.metadata</code>）を要求します。一覧更新用の認証ではDriveの読み取りとGoogleスプレッドシート操作（<code>spreadsheets</code>）を要求します。これらのOAuth権限自体はINBOXや一覧1個に限定されません。</p>
+<p>アプリは指定INBOXと登録した移動先を操作対象とし、所有者・共有状態・配置などを検証します。一覧の更新は、明示的に登録した専用スプレッドシートの管理範囲に限定します。原本の自動削除やゴミ箱への移動は行いません。</p>
+<h2>処理場所・外部への送信</h2>
+<p>文書のAI分類は利用者のPC内のOllamaで実行します。この構成では文書本文を外部AIサービスへ送信せず、学習用データとして収集しません。アプリはGoogle DriveとGoogle Sheetsへ必要なAPI要求を送信します。</p>
+<p>専用の移動先一覧には、ファイル名・リンク・処理状態・移動先・判断理由・処理日時・確信度を送信します。判断理由には文書内容への言及や抜粋が含まれる場合があります。運用者の別サーバーへの文書収集、広告利用、販売は行いません。</p>
+<p>Google APIから受け取った情報は、このページに記載したファイル整理・結果確認・復旧のために使用し、<a href="https://developers.google.com/terms/api-services-user-data-policy">Google API Services User Data Policy</a>のLimited Use要件を含む規定に従って取り扱います。</p>
+<h2>保存と保持期間</h2>
+<p>認証ファイルは利用者のPCの専用保存先に保存します。取得した文書は処理のための一時ファイルとして扱い、通常は処理後に除去します。処理中断時などに一時ファイルが残る場合があります。</p>
+<p>ファイル情報・ハッシュ値・分類結果・操作履歴はPC上のSQLiteとログに保存し、自動で期限を決めて削除しません。プロジェクトや履歴の保存先がOneDriveなどの同期対象の場合、その同期サービスの設定に従ってクラウドにも保存されます。利用者が設定したバックアップにも記録が残る場合があります。</p>
+<p>Google Drive上の原本はGoogle Driveに保存されます。一覧は最新1000ファイルを表示し、過去の操作記録はPCの履歴に残ります。</p>
+<h2>停止・許可の取り消し・データの削除</h2>
+<p>利用者は監視プログラムを停止し、<a href="https://myaccount.google.com/connections">Googleアカウントの接続管理</a>からアプリのアクセス許可を取り消せます。許可を取り消しても、PCの履歴やDriveの原本・一覧は自動では削除されません。</p>
+<p>認証ファイル、履歴、ログ、一時ファイル、一覧、バックアップの削除は、監視を止めて必要なデータを確認したうえで利用者が行えます。履歴を削除するとUndoや未確定操作の復旧ができなくなることがあります。削除方法やデータの取り扱いは下記へお問い合わせください。</p>
+<h2>このWebサイト</h2><p>この説明ページには、解析用スクリプト、広告、入力フォーム、独自のトラッキングCookieを組み込んでいません。公開先のホスティング事業者が通信上の情報を取り扱う場合は、その事業者のポリシーも適用されます。</p>
+<h2>問い合わせ・変更</h2><p>AI File Organizer 運用者：<a href="mailto:hidenoba@gmail.com">hidenoba@gmail.com</a>。取り扱いを変更した場合は、このページの内容と更新日を変更します。</p>
+</main><footer><a href="index.html">アプリ紹介</a> · <a href="terms.html">利用規約</a></footer>
+</body></html>
